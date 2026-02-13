@@ -20,21 +20,27 @@
           <a href="#what">What it is</a>
           <a href="#for-you">For you</a>
           <a href="#inside">Inside</a>
+          <a href="contact.html">Contact</a>
         </nav>
       </header>
 
       <main>
-        <section class="top-waitlist">
+        <section class="top-waitlist" id="top-waitlist">
           <div class="top-waitlist-inner">
             <div>
               <p class="eyebrow">Early access</p>
               <h2>Join the waitlist to get notified</h2>
               <p class="soft-note">Be first to know when BrainBubble opens up. Gentle updates only.</p>
             </div>
-            <form class="waitlist-form compact" action="https://formspree.io/f/mojnqkkl" method="post">
+            <div class="form-success" data-success="top" hidden>
+              <h3>You're on the list ✨</h3>
+              <p>Thanks for joining. We’ll send gentle updates to your inbox.</p>
+            </div>
+            <form class="waitlist-form compact" action="https://formspree.io/f/xgolaqnq" method="post">
               <input type="text" name="name" placeholder="Your name" aria-label="Your name" />
               <input type="email" name="email" placeholder="Email address" required aria-label="Email address" />
               <input type="hidden" name="_subject" value="BrainBubble waitlist — top form" />
+              <input type="hidden" name="_redirect" value="index.html?submitted=top#top-waitlist" />
               <input type="hidden" name="_replyto" value="" />
               <input type="hidden" name="_gotcha" value="" />
               <button type="submit">Join the waitlist</button>
@@ -135,10 +141,15 @@
             <h2>Join the waitlist to get notified</h2>
             <p>Be first to know when BrainBubble opens up. We’ll only send gentle updates.</p>
           </div>
-          <form class="waitlist-form" action="https://formspree.io/f/mojnqkkl" method="post">
+          <div class="form-success" data-success="main" hidden>
+            <h3>You're on the list ✨</h3>
+            <p>Thanks for joining. We’ll send gentle updates to your inbox.</p>
+          </div>
+          <form class="waitlist-form" action="https://formspree.io/f/xgolaqnq" method="post">
             <input type="text" name="name" placeholder="Your name" aria-label="Your name" />
             <input type="email" name="email" placeholder="Email address" required aria-label="Email address" />
             <input type="hidden" name="_subject" value="BrainBubble waitlist — main form" />
+            <input type="hidden" name="_redirect" value="index.html?submitted=main#waitlist" />
             <input type="hidden" name="_replyto" value="" />
             <input type="hidden" name="_gotcha" value="" />
             <button type="submit">Join the waitlist</button>
@@ -149,7 +160,22 @@
 
       <footer class="site-footer">
         <p>BrainBubble — a gentle second brain for real life.</p>
+        <a href="contact.html" class="pill">Contact</a>
       </footer>
     </div>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const submitted = params.get("submitted");
+      if (submitted) {
+        if (submitted === "top") {
+          document.querySelector('[data-success="top"]')?.removeAttribute("hidden");
+          document.querySelector('#top-waitlist .waitlist-form')?.setAttribute("hidden", "true");
+        }
+        if (submitted === "main") {
+          document.querySelector('[data-success="main"]')?.removeAttribute("hidden");
+          document.querySelector('#waitlist .waitlist-form')?.setAttribute("hidden", "true");
+        }
+      }
+    </script>
   </body>
 </html>

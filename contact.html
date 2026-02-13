@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BrainBubble — Waitlist</title>
+    <title>BrainBubble — Contact</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,42 +18,38 @@
         <div class="logo">BrainBubble</div>
         <nav class="nav">
           <a href="index.html">Home</a>
-          <a class="pill" href="waitlist.html">Waitlist</a>
+          <a class="pill" href="contact.html">Contact</a>
         </nav>
       </header>
 
       <main class="waitlist-page">
         <section class="waitlist-card">
-          <p class="eyebrow">You’re early. We love that.</p>
-          <h1>Join the waitlist</h1>
-          <p>
-            BrainBubble is a gentle second brain for messy thoughts, late-night spirals, and the small
-            habits that keep you afloat. Sign up to get notified when we open the doors.
-          </p>
+          <p class="eyebrow">Contact</p>
+          <h1>Let’s talk</h1>
+          <p>Questions, press, partnerships, or feedback — send us a note.</p>
           <div class="form-success" hidden>
-            <h2>You're on the list ✨</h2>
-            <p>Thanks for joining. We’ll only send gentle updates when BrainBubble is ready.</p>
-            <a class="ghost" href="index.html">Back to the main page</a>
+            <h2>Message sent ✨</h2>
+            <p>Thanks for reaching out. We’ll get back to you soon.</p>
           </div>
           <form class="waitlist-form" action="https://formspree.io/f/xgolaqnq" method="post">
             <div class="form-row">
               <label for="name">Name</label>
-              <input id="name" type="text" name="name" placeholder="Your name" />
+              <input id="name" type="text" name="name" placeholder="Your name" required />
             </div>
             <div class="form-row">
               <label for="email">Email</label>
               <input id="email" type="email" name="email" placeholder="you@email.com" required />
             </div>
             <div class="form-row">
-              <label for="reason">Why BrainBubble?</label>
-              <textarea id="reason" name="reason" rows="3" placeholder="Tell us what you want a gentle second brain for..."></textarea>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us what's on your mind..." required></textarea>
             </div>
-            <input type="hidden" name="_subject" value="BrainBubble waitlist — full page" />
-            <input type="hidden" name="_redirect" value="waitlist.html?submitted=1" />
+            <input type="hidden" name="_subject" value="BrainBubble contact form" />
+            <input type="hidden" name="_redirect" value="contact.html?submitted=1" />
             <input type="hidden" name="_gotcha" value="" />
-            <button type="submit">Join the waitlist</button>
+            <button type="submit">Send message</button>
           </form>
-          <p class="tiny">We’ll only send gentle updates. No spam, no pressure.</p>
+          <p class="tiny">We’ll reply as soon as we can.</p>
         </section>
       </main>
 
@@ -63,10 +59,9 @@
     </div>
     <script>
       const params = new URLSearchParams(window.location.search);
-      const success = params.get("submitted") === "1";
-      if (success) {
-        document.querySelector(".waitlist-form")?.setAttribute("hidden", "true");
+      if (params.get("submitted") === "1") {
         document.querySelector(".form-success")?.removeAttribute("hidden");
+        document.querySelector(".waitlist-form")?.setAttribute("hidden", "true");
       }
     </script>
   </body>
