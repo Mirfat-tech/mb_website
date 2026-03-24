@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BrainBubble — Your Brain, Put Into an App</title>
+    <title>MyBrainBubble — Your Brain, Put Into an App</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,12 +14,13 @@
   </head>
   <body>
     <div class="page-bg">
-      <header class="site-header">
-        <div class="logo">BrainBubble</div>
+      <header class="site-header site-header-intro">
+        <div class="logo">MyBrainBubble</div>
         <nav class="nav">
+          <a href="#demo">Demo</a>
           <a href="#what">What it is</a>
           <a href="#for-you">For you</a>
-          <a href="#inside">Inside</a>
+          <a href="#waitlist">Waitlist</a>
           <a href="contact.html">Contact</a>
           <a href="terms.html">Terms</a>
           <a href="privacy.html">Privacy</a>
@@ -27,53 +28,68 @@
       </header>
 
       <main>
-        <section class="top-waitlist" id="top-waitlist">
-          <div class="top-waitlist-inner">
-            <div>
-              <p class="eyebrow">Early access</p>
-              <h2>Join the waitlist to get notified</h2>
-              <p class="soft-note">Be first to know when BrainBubble opens up. Gentle updates only.</p>
+        <section class="brainfog-hero" id="demo">
+          <div class="brainfog-stage-wrap">
+            <div class="brainfog-welcome" id="brainfog-welcome" aria-hidden="true">
+              <p>Welcome</p>
             </div>
-            <div class="form-success" data-success="top" hidden>
-              <h3>You're on the list ✨</h3>
-              <p>Thanks for joining. We’ll send gentle updates to your inbox.</p>
+            <div class="brainfog-toolbar">
+              <button class="cta brainfog-launch" id="brainfog-add-button" type="button">+ Add a thought</button>
+              <button
+                class="ghost figureout-toggle"
+                id="figureout-toggle"
+                type="button"
+                aria-pressed="false"
+              >
+                Figure-Out Mode
+              </button>
             </div>
-            <form class="waitlist-form compact" action="https://formspree.io/f/xgolaqnq" method="post">
-              <input type="text" name="name" placeholder="Your name" aria-label="Your name" />
-              <input type="email" name="email" placeholder="Email address" required aria-label="Email address" />
-              <input type="hidden" name="_subject" value="BrainBubble waitlist — top form" />
-              <input type="hidden" name="_redirect" value="index.html?submitted=top#top-waitlist" />
-              <input type="hidden" name="_replyto" value="" />
-              <input type="hidden" name="_gotcha" value="" />
-              <button type="submit">Join the waitlist</button>
-            </form>
+            <div class="brainfog-stage" id="brainfog-stage">
+              <div class="brainfog-prompt" aria-hidden="true">
+                <span>Let it out 💨</span>
+                <span>What&apos;s overwhelming you today?</span>
+              </div>
+            </div>
+
+            <div class="brainfog-composer" id="brainfog-composer" hidden>
+              <label class="sr-only" for="brainfog-input">Thought</label>
+              <input
+                id="brainfog-input"
+                type="text"
+                maxlength="64"
+                placeholder=""
+              />
+              <div class="brainfog-composer-actions">
+                <button class="ghost" id="brainfog-cancel" type="button">Not now</button>
+                <button class="cta" id="brainfog-save" type="button">Keep thought</button>
+              </div>
+            </div>
+
+            <div class="figureout-panel" id="figureout-panel" hidden>
+              <p class="figureout-label">Figure-Out Mode</p>
+              <div class="figureout-step" id="figureout-step">
+                <h2 id="figureout-question">Out of all of this... what can you actually control?</h2>
+                <p class="figureout-copy" id="figureout-copy">
+                  Tap the thoughts that still feel within reach.
+                </p>
+              </div>
+              <div class="figureout-selection" id="figureout-selection"></div>
+              <div class="figureout-options" id="figureout-options"></div>
+              <div class="figureout-actions">
+                <button class="ghost" id="figureout-back" type="button" hidden>Back</button>
+                <button class="cta" id="figureout-next" type="button">Next</button>
+              </div>
+            </div>
+
+            <button class="brainfog-tip-bubble" id="brainfog-tip" type="button">Feel free to drag bubbles around</button>
           </div>
-        </section>
-        <section class="hero">
-          <div class="hero-content">
-            <p class="eyebrow">Your brain, but put into an app.</p>
-            <h1>BrainBubble</h1>
-            <p class="hero-sub">
-              A gentle second brain for messy thoughts, late-night spirals, forgotten water,
-              and trying to get your life together — without knowing where to start.
-            </p>
-            <div class="hero-actions">
-              <a class="ghost" href="#what">See what it does</a>
-            </div>
-            <p class="tiny">No productivity guilt. No “fix yourself” energy. Just somewhere safe for everything in your head.</p>
-          </div>
-          <div class="hero-card">
-            <div class="bubble-chip">🫧 Gentle wellbeing + life organisation</div>
-            <div class="card-media hero-media">
-              <img src="assets/home_screen_bb.png" alt="BrainBubble home screen" />
-            </div>
-          </div>
+          <div class="brainfog-scrollcue">Scroll to see more</div>
         </section>
 
         <section id="what" class="section">
           <div class="section-title">
-            <h2>What BrainBubble actually is</h2>
-            <p>BrainBubble is almost like your second brain. Or your brain... finally put into an app.</p>
+            <h2>What MyBrainBubble actually is</h2>
+            <p>MyBrainBubble is almost like your second brain. Or your brain... finally put into an app.</p>
           </div>
           <div class="split">
             <div class="panel">
@@ -107,8 +123,7 @@
 
         <section id="for-you" class="section">
           <div class="section-title">
-            <h2>BrainBubble is for you if...</h2>
-            <p>This should feel like someone is reading their own diary.</p>
+            <h2>MyBrainBubble is for you if...</h2>
           </div>
           <div class="for-you-grid">
             <div class="bubble-block">
@@ -133,15 +148,12 @@
               🫧 You want gentle reminders to drink water, check in with yourself, or do the thing — without being nagged or shamed.
             </div>
           </div>
-          <p class="soft-note">
-            BrainBubble might not be for you if you love strict schedules, intense productivity systems, or being told exactly what to do every day — and that’s okay.
-          </p>
         </section>
 
         <section id="waitlist" class="section waitlist">
           <div class="section-title">
             <h2>Join the waitlist to get notified</h2>
-            <p>Be first to know when BrainBubble opens up. We’ll only send gentle updates.</p>
+            <p>Be first to know when MyBrainBubble opens up. We’ll only send gentle updates.</p>
           </div>
           <div class="form-success" data-success="main" hidden>
             <h3>You're on the list ✨</h3>
@@ -150,7 +162,7 @@
           <form class="waitlist-form" action="https://formspree.io/f/xgolaqnq" method="post">
             <input type="text" name="name" placeholder="Your name" aria-label="Your name" />
             <input type="email" name="email" placeholder="Email address" required aria-label="Email address" />
-            <input type="hidden" name="_subject" value="BrainBubble waitlist — main form" />
+            <input type="hidden" name="_subject" value="MyBrainBubble waitlist — main form" />
             <input type="hidden" name="_redirect" value="index.html?submitted=main#waitlist" />
             <input type="hidden" name="_replyto" value="" />
             <input type="hidden" name="_gotcha" value="" />
@@ -161,24 +173,406 @@
       </main>
 
       <footer class="site-footer">
-        <p>BrainBubble — a gentle second brain for real life.</p>
-        <a href="terms.html" class="pill">Terms</a>
-        <a href="privacy.html" class="pill">Privacy</a>
+        <p>MyBrainBubble — a gentle second brain for real life.</p>
+        <div class="footer-links">
+          <a href="terms.html" class="pill">Terms</a>
+          <a href="privacy.html" class="pill">Privacy</a>
+        </div>
       </footer>
     </div>
     <script>
       const params = new URLSearchParams(window.location.search);
       const submitted = params.get("submitted");
-      if (submitted) {
-        if (submitted === "top") {
-          document.querySelector('[data-success="top"]')?.removeAttribute("hidden");
-          document.querySelector('#top-waitlist .waitlist-form')?.setAttribute("hidden", "true");
-        }
-        if (submitted === "main") {
-          document.querySelector('[data-success="main"]')?.removeAttribute("hidden");
-          document.querySelector('#waitlist .waitlist-form')?.setAttribute("hidden", "true");
+      if (submitted === "main") {
+        document.querySelector('[data-success="main"]')?.removeAttribute("hidden");
+        document.querySelector('#waitlist .waitlist-form')?.setAttribute("hidden", "true");
+      }
+    </script>
+    <script>
+      const stage = document.getElementById("brainfog-stage");
+      const composer = document.getElementById("brainfog-composer");
+      const input = document.getElementById("brainfog-input");
+      const addButton = document.getElementById("brainfog-add-button");
+      const saveButton = document.getElementById("brainfog-save");
+      const cancelButton = document.getElementById("brainfog-cancel");
+      const tip = document.getElementById("brainfog-tip");
+      const stageWrap = document.querySelector(".brainfog-stage-wrap");
+      const figureOutToggle = document.getElementById("figureout-toggle");
+      const figureOutPanel = document.getElementById("figureout-panel");
+      const figureOutQuestion = document.getElementById("figureout-question");
+      const figureOutCopy = document.getElementById("figureout-copy");
+      const figureOutSelection = document.getElementById("figureout-selection");
+      const figureOutOptions = document.getElementById("figureout-options");
+      const figureOutNext = document.getElementById("figureout-next");
+      const figureOutBack = document.getElementById("figureout-back");
+
+      const starterBubbles = [
+        { text: "work", x: 12, y: 10 },
+        { text: "woke up late", x: 66, y: 10 },
+        { text: "just got an exciting work promotion and don't know how to feel", x: 36, y: 18 },
+        { text: "feeling lonely", x: 76, y: 30 },
+      ];
+
+      let hasCreatedThought = false;
+      let activePointer = null;
+      let figureOutStep = 0;
+      let controlledBubbles = [];
+      let orderedBubbles = [];
+      let holdToDeleteEnabled = false;
+      let hasMovedBubble = false;
+
+      function hideTipBubble() {
+        tip.style.opacity = "0";
+      }
+
+      function showTipBubble(message) {
+        tip.textContent = message;
+        tip.style.opacity = "1";
+      }
+
+      function bubbleSizeFor(text) {
+        const base = 112;
+        const extra = Math.min(72, Math.max(0, text.length * 2.2));
+        return base + extra;
+      }
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function createBubble(text, leftPercent, topPercent, isUserBubble) {
+        const bubble = document.createElement("button");
+        const size = bubbleSizeFor(text);
+        bubble.type = "button";
+        bubble.className = "brainfog-bubble is-floating";
+        bubble.textContent = text;
+        bubble.dataset.label = text;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${leftPercent}%`;
+        bubble.style.top = `${topPercent}%`;
+        bubble.dataset.left = String(leftPercent);
+        bubble.dataset.top = String(topPercent);
+        bubble.dataset.size = String(size);
+        enableBubbleInteraction(bubble);
+        stage.appendChild(bubble);
+
+        if (isUserBubble && !hasCreatedThought) {
+          hasCreatedThought = true;
+        } else if (isUserBubble) {
         }
       }
+
+      function openComposer() {
+        composer.hidden = false;
+        input.value = "";
+        requestAnimationFrame(() => input.focus());
+      }
+
+      function closeComposer() {
+        composer.hidden = true;
+        input.value = "";
+      }
+
+      function randomPosition(size) {
+        const rect = stage.getBoundingClientRect();
+        const maxX = Math.max(8, rect.width - size - 8);
+        const maxY = Math.max(8, rect.height - size - 8);
+        return {
+          left: (Math.random() * maxX) / rect.width * 100,
+          top: (Math.random() * maxY) / rect.height * 100,
+        };
+      }
+
+      function enableBubbleInteraction(bubble) {
+        let holdTimer = null;
+        let moved = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        bubble.addEventListener("pointerdown", (event) => {
+          const rect = bubble.getBoundingClientRect();
+          activePointer = bubble;
+          moved = false;
+          offsetX = event.clientX - rect.left;
+          offsetY = event.clientY - rect.top;
+          bubble.setPointerCapture(event.pointerId);
+          bubble.classList.add("is-held");
+          if (holdToDeleteEnabled) {
+            holdTimer = window.setTimeout(() => {
+              removeBubble(bubble);
+            }, 700);
+          }
+        });
+
+        bubble.addEventListener("pointermove", (event) => {
+          if (activePointer !== bubble) {
+            return;
+          }
+
+          const stageRect = stage.getBoundingClientRect();
+          const size = Number(bubble.dataset.size || 112);
+          const nextLeft = clamp(event.clientX - stageRect.left - offsetX, 0, stageRect.width - size);
+          const nextTop = clamp(event.clientY - stageRect.top - offsetY, 0, stageRect.height - size);
+
+          if (Math.abs(nextLeft - stageRect.width * Number(bubble.dataset.left || 0) / 100) > 2 ||
+              Math.abs(nextTop - stageRect.height * Number(bubble.dataset.top || 0) / 100) > 2) {
+            moved = true;
+            bubble.classList.add("is-dragging");
+            bubble.classList.remove("is-held");
+            window.clearTimeout(holdTimer);
+          }
+
+          if (moved) {
+            const leftPercent = nextLeft / stageRect.width * 100;
+            const topPercent = nextTop / stageRect.height * 100;
+            bubble.style.left = `${leftPercent}%`;
+            bubble.style.top = `${topPercent}%`;
+            bubble.dataset.left = String(leftPercent);
+            bubble.dataset.top = String(topPercent);
+          }
+        });
+
+        function clearPointerState(event) {
+          if (activePointer !== bubble) {
+            return;
+          }
+          window.clearTimeout(holdTimer);
+          bubble.classList.remove("is-held", "is-dragging");
+          activePointer = null;
+          if (event && bubble.hasPointerCapture(event.pointerId)) {
+            bubble.releasePointerCapture(event.pointerId);
+          }
+          if (moved) {
+            if (!hasMovedBubble) {
+              hasMovedBubble = true;
+              hideTipBubble();
+            }
+          }
+        }
+
+        bubble.addEventListener("click", () => {
+          if (activePointer === bubble || holdToDeleteEnabled) {
+            return;
+          }
+          if (figureOutStep === 1) {
+            toggleControlledBubble(bubble);
+          } else if (figureOutStep === 2) {
+            toggleOrderedBubble(bubble);
+          }
+        });
+
+        bubble.addEventListener("pointerup", clearPointerState);
+        bubble.addEventListener("pointercancel", clearPointerState);
+      }
+
+      function getAllBubbles() {
+        return [...stage.querySelectorAll(".brainfog-bubble")];
+      }
+
+      function removeBubble(bubble) {
+        controlledBubbles = controlledBubbles.filter((item) => item !== bubble);
+        orderedBubbles = orderedBubbles.filter((item) => item !== bubble);
+        bubble.remove();
+        refreshBubbleSelections();
+        renderFigureOutStep();
+      }
+
+      function toggleControlledBubble(bubble) {
+        if (controlledBubbles.includes(bubble)) {
+          controlledBubbles = controlledBubbles.filter((item) => item !== bubble);
+        } else {
+          controlledBubbles.push(bubble);
+        }
+        refreshBubbleSelections();
+        renderFigureOutStep();
+      }
+
+      function toggleOrderedBubble(bubble) {
+        if (!controlledBubbles.includes(bubble)) {
+          return;
+        }
+        if (orderedBubbles.includes(bubble)) {
+          orderedBubbles = orderedBubbles.filter((item) => item !== bubble);
+        } else {
+          orderedBubbles.push(bubble);
+        }
+        refreshBubbleSelections();
+        renderFigureOutStep();
+      }
+
+      function refreshBubbleSelections() {
+        getAllBubbles().forEach((bubble) => {
+          bubble.classList.remove("is-selected", "is-poppable");
+          const oldBadge = bubble.querySelector(".bubble-order");
+          if (oldBadge) {
+            oldBadge.remove();
+          }
+
+          if (figureOutStep >= 1 && controlledBubbles.includes(bubble)) {
+            bubble.classList.add("is-selected");
+          }
+
+          if (figureOutStep >= 2) {
+            const index = orderedBubbles.indexOf(bubble);
+            if (index !== -1) {
+              const badge = document.createElement("span");
+              badge.className = "bubble-order";
+              badge.textContent = String(index + 1);
+              bubble.appendChild(badge);
+            }
+          }
+
+          if (figureOutStep === 3 && controlledBubbles.includes(bubble)) {
+            bubble.classList.add("is-poppable");
+          }
+        });
+      }
+
+      function setFigureOutActive(nextActive) {
+        figureOutToggle.setAttribute("aria-pressed", String(nextActive));
+        figureOutToggle.textContent = nextActive
+          ? "Click to exit Figure-Out Mode"
+          : "Figure-Out Mode";
+        figureOutPanel.hidden = !nextActive;
+          if (!nextActive) {
+            figureOutStep = 0;
+            holdToDeleteEnabled = false;
+            controlledBubbles = [];
+            orderedBubbles = [];
+            refreshBubbleSelections();
+          } else {
+            figureOutStep = 1;
+            renderFigureOutStep();
+        }
+      }
+
+      function renderActionCards() {
+        figureOutOptions.innerHTML = `
+          <div class="figureout-cards">
+            <button class="figureout-card" type="button"><strong>Let it out</strong><span>Vent softly and get it out of your head.</span></button>
+            <button class="figureout-card" type="button"><strong>Write it down</strong><span>Untangle it in words and make it feel lighter.</span></button>
+            <button class="figureout-card" type="button"><strong>Build something small</strong><span>Choose one tiny next step you could actually do.</span></button>
+            <button class="figureout-card" type="button"><strong>Focus for 10</strong><span>Give one thing a gentle ten-minute container.</span></button>
+          </div>
+        `;
+        figureOutOptions.querySelectorAll(".figureout-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            showTipBubble("This gentle next step is waiting for you in the app. Join the waitlist for early access 💗");
+          });
+        });
+      }
+
+      function renderFigureOutStep() {
+        holdToDeleteEnabled = figureOutStep === 3;
+        refreshBubbleSelections();
+        figureOutSelection.hidden = false;
+        figureOutOptions.hidden = true;
+        figureOutOptions.innerHTML = "";
+        figureOutBack.hidden = figureOutStep <= 1;
+        figureOutNext.hidden = false;
+        figureOutNext.textContent = figureOutStep === 4 ? "Close" : "Next";
+
+        if (figureOutStep === 1) {
+          figureOutQuestion.textContent = "Out of all of this... what can you actually control?";
+          figureOutCopy.textContent = "Tap the bubbles that still feel within reach.";
+          figureOutSelection.textContent = controlledBubbles.length
+            ? `${controlledBubbles.length} selected`
+            : "Nothing selected yet.";
+        } else if (figureOutStep === 2) {
+          figureOutQuestion.textContent = "Okay... what do you want to work on first?";
+          figureOutCopy.textContent = "Tap your selected bubbles in order. We'll number them for you.";
+          figureOutSelection.textContent = "";
+          figureOutSelection.hidden = true;
+        } else if (figureOutStep === 3) {
+          figureOutQuestion.textContent = "What can we let go of for now? (hold to pop)";
+          figureOutCopy.textContent = "Press and hold any selected bubble to let it go. Keep what still needs care.";
+          figureOutSelection.textContent = controlledBubbles.length
+            ? "Hold a bubble for a moment to pop it."
+            : "You've cleared the canvas. You can move on.";
+        } else if (figureOutStep === 4) {
+          figureOutQuestion.textContent = "Do you want to let it out, write it down, untangle it, build something small, or focus for 10 minutes?";
+          figureOutCopy.textContent = "Choose the kindest next container for what is still here.";
+          figureOutSelection.hidden = true;
+          figureOutOptions.hidden = false;
+          renderActionCards();
+        }
+
+        if (figureOutStep === 3) {
+          showTipBubble("Hold to pop");
+        } else {
+          if (!hasMovedBubble) {
+            showTipBubble("Feel free to drag bubbles around");
+          } else {
+            hideTipBubble();
+          }
+        }
+      }
+
+      addButton.addEventListener("click", openComposer);
+      cancelButton.addEventListener("click", closeComposer);
+      saveButton.addEventListener("click", () => {
+        const thought = input.value.trim();
+        if (!thought) {
+          return;
+        }
+        const size = bubbleSizeFor(thought);
+        const position = randomPosition(size);
+        createBubble(thought, position.left, position.top, true);
+        closeComposer();
+      });
+
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          saveButton.click();
+        }
+        if (event.key === "Escape") {
+          closeComposer();
+        }
+      });
+
+      figureOutToggle.addEventListener("click", () => {
+        const nextPressed = figureOutToggle.getAttribute("aria-pressed") !== "true";
+        setFigureOutActive(nextPressed);
+      });
+
+      figureOutBack.addEventListener("click", () => {
+        if (figureOutStep > 1) {
+          figureOutStep -= 1;
+          renderFigureOutStep();
+        }
+      });
+
+      figureOutNext.addEventListener("click", () => {
+        if (figureOutStep === 1) {
+          if (!controlledBubbles.length) {
+            return;
+          }
+          orderedBubbles = controlledBubbles.filter((bubble) => orderedBubbles.includes(bubble));
+          figureOutStep = 2;
+        } else if (figureOutStep === 2) {
+          if (!orderedBubbles.length) {
+            return;
+          }
+          figureOutStep = 3;
+        } else if (figureOutStep === 3) {
+          figureOutStep = 4;
+        } else {
+          setFigureOutActive(false);
+          return;
+        }
+        renderFigureOutStep();
+      });
+
+      starterBubbles.forEach((bubble) => {
+        createBubble(bubble.text, bubble.x, bubble.y, false);
+      });
+
+      window.setTimeout(() => {
+        stageWrap?.classList.add("is-live");
+        document.querySelector(".site-header")?.classList.remove("site-header-intro");
+      }, 900);
     </script>
   </body>
 </html>
