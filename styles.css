@@ -249,6 +249,17 @@ body {
   overflow: hidden;
 }
 
+.brainfog-helper-note {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  z-index: 1;
+  color: rgba(93, 114, 134, 0.68);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+}
+
 .brainfog-prompt {
   position: absolute;
   inset: 50% auto auto 50%;
@@ -363,6 +374,18 @@ body {
   transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.22s ease;
   animation: bubble-rise 0.35s ease;
   will-change: transform;
+}
+
+.brainfog-bubble-text {
+  display: -webkit-box;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  word-break: break-word;
+  padding: 0 4px;
 }
 
 .brainfog-bubble.is-dragging {

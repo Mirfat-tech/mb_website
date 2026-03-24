@@ -49,6 +49,7 @@
                 <span>Let it out 💨</span>
                 <span>What&apos;s overwhelming you today?</span>
               </div>
+              <div class="brainfog-helper-note" aria-hidden="true">Hold bubble to delete</div>
             </div>
 
             <div class="brainfog-composer" id="brainfog-composer" hidden>
@@ -56,7 +57,6 @@
               <input
                 id="brainfog-input"
                 type="text"
-                maxlength="64"
                 placeholder=""
               />
               <div class="brainfog-composer-actions">
@@ -206,19 +206,11 @@
       const figureOutNext = document.getElementById("figureout-next");
       const figureOutBack = document.getElementById("figureout-back");
 
-      const starterBubbles = [
-        { text: "work", x: 12, y: 10 },
-        { text: "woke up late", x: 66, y: 10 },
-        { text: "just got an exciting work promotion and don't know how to feel", x: 36, y: 18 },
-        { text: "feeling lonely", x: 76, y: 30 },
-      ];
-
       let hasCreatedThought = false;
       let activePointer = null;
       let figureOutStep = 0;
       let controlledBubbles = [];
       let orderedBubbles = [];
-      let holdToDeleteEnabled = false;
       let hasMovedBubble = false;
 
       function hideTipBubble() {
@@ -242,10 +234,13 @@
 
       function createBubble(text, leftPercent, topPercent, isUserBubble) {
         const bubble = document.createElement("button");
+        const bubbleText = document.createElement("span");
         const size = bubbleSizeFor(text);
         bubble.type = "button";
         bubble.className = "brainfog-bubble is-floating";
-        bubble.textContent = text;
+        bubbleText.className = "brainfog-bubble-text";
+        bubbleText.textContent = text;
+        bubble.appendChild(bubbleText);
         bubble.dataset.label = text;
         bubble.style.width = `${size}px`;
         bubble.style.height = `${size}px`;
@@ -287,22 +282,27 @@
       function enableBubbleInteraction(bubble) {
         let holdTimer = null;
         let moved = false;
+        let heldToDelete = false;
         let offsetX = 0;
         let offsetY = 0;
 
         bubble.addEventListener("pointerdown", (event) => {
+          if (event.button && event.button !== 0) {
+            return;
+          }
           const rect = bubble.getBoundingClientRect();
           activePointer = bubble;
           moved = false;
+          heldToDelete = false;
           offsetX = event.clientX - rect.left;
           offsetY = event.clientY - rect.top;
           bubble.setPointerCapture(event.pointerId);
           bubble.classList.add("is-held");
-          if (holdToDeleteEnabled) {
-            holdTimer = window.setTimeout(() => {
-              removeBubble(bubble);
-            }, 700);
-          }
+          holdTimer = window.setTimeout(() => {
+            heldToDelete = true;
+            bubble.classList.add("is-pop-target");
+            window.setTimeout(() => removeBubble(bubble), 120);
+          }, 700);
         });
 
         bubble.addEventListener("pointermove", (event) => {
@@ -319,7 +319,7 @@
               Math.abs(nextTop - stageRect.height * Number(bubble.dataset.top || 0) / 100) > 2) {
             moved = true;
             bubble.classList.add("is-dragging");
-            bubble.classList.remove("is-held");
+            bubble.classList.remove("is-held", "is-pop-target");
             window.clearTimeout(holdTimer);
           }
 
@@ -343,6 +343,9 @@
           if (event && bubble.hasPointerCapture(event.pointerId)) {
             bubble.releasePointerCapture(event.pointerId);
           }
+          if (heldToDelete) {
+            return;
+          }
           if (moved) {
             if (!hasMovedBubble) {
               hasMovedBubble = true;
@@ -352,7 +355,7 @@
         }
 
         bubble.addEventListener("click", () => {
-          if (activePointer === bubble || holdToDeleteEnabled) {
+          if (activePointer === bubble || heldToDelete) {
             return;
           }
           if (figureOutStep === 1) {
@@ -437,7 +440,6 @@
         figureOutPanel.hidden = !nextActive;
           if (!nextActive) {
             figureOutStep = 0;
-            holdToDeleteEnabled = false;
             controlledBubbles = [];
             orderedBubbles = [];
             refreshBubbleSelections();
@@ -464,7 +466,6 @@
       }
 
       function renderFigureOutStep() {
-        holdToDeleteEnabled = figureOutStep === 3;
         refreshBubbleSelections();
         figureOutSelection.hidden = false;
         figureOutOptions.hidden = true;
@@ -563,10 +564,6 @@
           return;
         }
         renderFigureOutStep();
-      });
-
-      starterBubbles.forEach((bubble) => {
-        createBubble(bubble.text, bubble.x, bubble.y, false);
       });
 
       window.setTimeout(() => {
