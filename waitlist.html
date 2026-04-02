@@ -19,8 +19,8 @@
         <nav class="nav">
           <a href="index.html">Home</a>
           <a class="pill" href="waitlist.html">Waitlist</a>
-          <a href="terms.html">Terms</a>
-          <a href="privacy.html">Privacy</a>
+          <a href="terms.html" class="legal-link">Terms</a>
+          <a href="privacy.html" class="legal-link">Privacy</a>
         </nav>
       </header>
 
@@ -61,8 +61,10 @@
 
       <footer class="site-footer">
         <p>MyBrainBubble — your calm, kind, second brain.</p>
-        <a href="terms.html" class="pill">Terms</a>
-        <a href="privacy.html" class="pill">Privacy</a>
+        <div class="footer-links legal-links-group">
+          <a href="terms.html" class="pill legal-link">Terms</a>
+          <a href="privacy.html" class="pill legal-link">Privacy</a>
+        </div>
       </footer>
     </div>
     <script>
@@ -71,6 +73,17 @@
       if (success) {
         document.querySelector(".waitlist-form")?.setAttribute("hidden", "true");
         document.querySelector(".form-success")?.removeAttribute("hidden");
+      }
+    </script>
+    <script>
+      const SHOW_LEGAL_LINKS = false;
+      if (!SHOW_LEGAL_LINKS) {
+        document.querySelectorAll(".legal-link").forEach((link) => link.remove());
+        document.querySelectorAll(".legal-links-group").forEach((group) => {
+          if (!group.querySelector(".legal-link")) {
+            group.remove();
+          }
+        });
       }
     </script>
   </body>
