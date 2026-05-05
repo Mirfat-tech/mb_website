@@ -152,7 +152,7 @@
 
       <section id="waitlist" class="section waitlist">
         <div class="section-title">
-          <h2>Join the waitlist to get notified</h2>
+          <h2>Join the waitlist to get 20 % off!</h2>
           <p>Be first to know when MyBrainBubble opens up. We’ll only send gentle updates.</p>
         </div>
         <div class="form-success" data-success="main" hidden>
@@ -175,8 +175,8 @@
     <footer class="site-footer">
       <p>MyBrainBubble — a gentle second brain for real life.</p>
       <div class="footer-links legal-links-group">
-        <a href="terms.html" class="pill legal-link">Terms</a>
-        <a href="privacy.html" class="pill legal-link">Privacy</a>
+        <a href="terms.html" class="pill legal-link">Terms &amp; Conditions</a>
+        <a href="privacy.html" class="pill legal-link">Privacy Policy</a>
       </div>
     </footer>
   </div>
@@ -570,17 +570,6 @@
       stageWrap?.classList.add("is-live");
       document.querySelector(".site-header")?.classList.remove("site-header-intro");
     }, 900);
-  </script>
-  <script>
-    const SHOW_LEGAL_LINKS = false;
-    if (!SHOW_LEGAL_LINKS) {
-      document.querySelectorAll(".legal-link").forEach((link) => link.remove());
-      document.querySelectorAll(".legal-links-group").forEach((group) => {
-        if (!group.querySelector(".legal-link")) {
-          group.remove();
-        }
-      });
-    }
   </script>
 </body>
 
