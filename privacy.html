@@ -66,7 +66,7 @@
           <p>We do not knowingly collect personal data from children beyond what is necessary to provide the App.</p>
 
           <h2>3. What Data We Collect</h2>
-          <p>We collect minimal data required to operate the App.</p>
+          <p>We collect limited data required to operate the App.</p>
 
           <p><strong>A. Account Information</strong></p>
           <p>When you create an account, we may collect:</p>
@@ -74,12 +74,12 @@
             <li>email address</li>
             <li>username</li>
             <li>subscription status</li>
-            <li>device identifiers, for device limits</li>
             <li>login timestamps</li>
+            <li>sync preferences</li>
           </ul>
           <p>We do not have access to your password.</p>
 
-          <p><strong>B. Content You Create (Stored Locally)</strong></p>
+          <p><strong>B. Content You Create</strong></p>
           <p>You may create content such as:</p>
           <ul class="list">
             <li>journal entries</li>
@@ -91,20 +91,29 @@
             <li>templates and logs</li>
             <li>reminders and notes</li>
             <li>photos or videos</li>
-            <li>visual customisation, such as user-added images</li>
-            <li>custom themes, including colours and visual preferences</li>
+            <li>visual customisation</li>
+            <li>themes and preferences</li>
             <li>user-created templates</li>
           </ul>
 
-          <p><strong>Important: Local Storage Model</strong></p>
+          <p><strong>Local-First Storage</strong></p>
           <p>MyBrainBubble is designed as a local-first application.</p>
-          <p>This means:</p>
+          <p>By default:</p>
           <ul class="list">
-            <li>Your content is stored only on your device</li>
-            <li>We do not store your personal content on our servers</li>
-            <li>We do not access, read, or monitor your content</li>
+            <li>your content may remain stored locally on your device</li>
+            <li>some features may work offline using local storage</li>
           </ul>
-          <p>This includes:</p>
+
+          <p><strong>Optional Cloud Sync</strong></p>
+          <p>
+            MyBrainBubble may allow users to enable an optional “Sync All Data Across Devices”
+            setting.
+          </p>
+          <p>
+            When enabled, some user-created app data may also be securely stored using cloud
+            services to allow access across signed-in devices.
+          </p>
+          <p>This may include:</p>
           <ul class="list">
             <li>journals</li>
             <li>planner data</li>
@@ -113,29 +122,41 @@
             <li>Gratitude Bubble entries</li>
             <li>Quote Bubble entries</li>
             <li>templates and logs</li>
-            <li>Pomodoro usage</li>
-            <li>uploaded media</li>
+            <li>Pomodoro activity</li>
+            <li>uploaded media references</li>
+            <li>themes and preferences</li>
+            <li>Home Sphere preferences</li>
           </ul>
-
-          <p><strong>C. Limited External Data (Account Only)</strong></p>
-          <p>The only data stored externally is limited to:</p>
+          <p>When sync is disabled:</p>
           <ul class="list">
-            <li>your email address</li>
-            <li>basic account details</li>
-            <li>number of devices linked to your account, for subscription purposes</li>
+            <li>some data may remain stored only on your device</li>
+            <li>data may not automatically transfer across devices</li>
+          </ul>
+          <p>We do not manually read, review, or monitor private user-created content.</p>
+
+          <p><strong>C. Limited External Data</strong></p>
+          <p>Some account-related information may be processed externally through trusted providers.</p>
+          <p>This may include:</p>
+          <ul class="list">
+            <li>email address</li>
+            <li>account identifiers</li>
+            <li>sync preferences</li>
+            <li>cloud-stored synced app data, if sync is enabled</li>
           </ul>
           <p>This is used strictly for:</p>
           <ul class="list">
             <li>authentication</li>
             <li>account management</li>
-            <li>subscription enforcement</li>
+            <li>optional cloud syncing</li>
+            <li>app functionality</li>
           </ul>
+          <p>Users may sign into multiple devices regardless of subscription tier.</p>
 
           <p><strong>D. Media Content</strong></p>
           <p>If you add photos or videos:</p>
           <ul class="list">
-            <li>they are stored locally on your device</li>
-            <li>we do not access or store them externally</li>
+            <li>they may remain stored locally on your device</li>
+            <li>if sync is enabled, selected media references or related synced content may also sync across your devices</li>
           </ul>
           <p>You are responsible for ensuring you have the right to use any uploaded content.</p>
 
@@ -163,19 +184,19 @@
           <p>This helps us maintain and improve the App.</p>
 
           <h2>4. How We Use Your Data</h2>
-          <p>We use data only to:</p>
+          <p>We use limited data only to:</p>
           <ul class="list">
             <li>provide core App functionality</li>
             <li>manage your account</li>
-            <li>enforce subscription limits, such as device count</li>
+            <li>provide optional cross-device syncing</li>
             <li>improve performance and reliability</li>
             <li>detect and prevent misuse</li>
           </ul>
           <p>We do not:</p>
           <ul class="list">
             <li>sell your data</li>
-            <li>use your data for advertising</li>
-            <li>access or analyse your personal content</li>
+            <li>use your personal content for advertising</li>
+            <li>manually access or analyse private journal content</li>
           </ul>
 
           <h2>5. Data Sharing</h2>
@@ -214,8 +235,9 @@
             <li>We do not recover lost local data</li>
           </ul>
           <p>
-            Because your content is stored locally, you are responsible for maintaining backups of
-            important data. We cannot recover lost content.
+            Depending on your sync settings, some data may remain stored locally on your device and
+            some data may sync securely across your signed-in devices. Users remain responsible for
+            maintaining backups of important content.
           </p>
 
           <h2>8. International Transfers</h2>
